@@ -83,17 +83,17 @@ export default function Home() {
         }
 
         .react-calendar {
-          width: 450px;
+          width: 225px; /* 幅を半分に */
           max-width: 100%;
           background: white;
           border: none;
-          font-size: 16px;
+          font-size: 8px; /* フォントサイズを調整 */
         }
         .react-calendar__month-view__weekdays {
           color: black;
           font-weight: bold;
-          font-size: 16px;
-          margin-top: 8px !important;
+          font-size: 8px; /* フォントサイズを調整 */
+          margin-top: 4px !important; /* マージンを調整 */
         }
         .react-calendar__month-view__weekdays__weekday {
           color: #666 !important;
@@ -101,17 +101,17 @@ export default function Home() {
         .react-calendar__navigation {
           color: black;
           font-weight: bold;
-          font-size: 18px;
-          margin-bottom: 8px !important;
+          font-size: 9px; /* フォントサイズを調整 */
+          margin-bottom: 4px !important; /* マージンを調整 */
         }
         .react-calendar__tile {
-          padding: 12px;
-          border-radius: 8px;
-          margin: 4px!important;
+          padding: 6px; /* パディングを調整 */
+          border-radius: 4px; /* ボーダー半径を調整 */
+          margin: 2px!important; /* マージンを調整 */
           text-align: center;
           color: black;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 9px; /* フォントサイズを調整 */
           display: flex;
           align-items: center;
           justify-content: center;
@@ -122,7 +122,7 @@ export default function Home() {
           grid-template-columns: repeat(7, 1fr) !important;
         }
         .react-calendar__navigation__label {
-          font-size: 24px !important;
+          font-size: 12px !important; /* フォントサイズを調整 */
         }
       `}</style>
     </div>
