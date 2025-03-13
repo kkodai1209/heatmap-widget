@@ -46,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-8">
+    <div className="flex flex-col items-center min-h-screen p-8" style={{ backgroundColor: "white" }}>
       <Calendar
         locale="en-US"
         onClickDay={(date) => setSelectedDate(format(date, "yyyy-MM-dd"))}
@@ -107,7 +107,7 @@ export default function Home() {
         .react-calendar__tile {
           padding: 12px;
           border-radius: 8px;
-          margin: 2px!important;
+          margin: 4px!important;
           text-align: center;
           color: black;
           font-weight: bold;
