@@ -75,9 +75,6 @@ export default function Home() {
         .tile-green-5 { background-color: #10b981 !important; }
         .tile-green-6 { background-color: #059669 !important; }
 
-        .tile-selected { 
-          border: 3px solid #60a5fa !important; /* クリックした日付を青枠 */
-        }
         .tile-today { 
           border: 3px solid #facc15 !important; /* 今日の日付を黄色枠 */
         }
