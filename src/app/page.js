@@ -46,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-8" style={{ backgroundColor: "white" }}>
+    <div className="flex flex-col items-center min-h-screen p-0" style={{ backgroundColor: "white" }}> {/* p-4をp-0に変更 */}
       <Calendar
         locale="en-US"
         onClickDay={(date) => setSelectedDate(format(date, "yyyy-MM-dd"))}
@@ -87,31 +87,36 @@ export default function Home() {
           max-width: 100%;
           background: white;
           border: none;
-          font-size: 8px; /* フォントサイズを調整 */
+          font-size: 10px; /* フォントサイズを少し大きく */
+          padding: 0; /* パディングを0に */
+          margin: 0; /* マージンを0に */
         }
         .react-calendar__month-view__weekdays {
           color: black;
           font-weight: bold;
-          font-size: 8px; /* フォントサイズを調整 */
-          margin-top: 4px !important; /* マージンを調整 */
+          font-size: 10px; /* フォントサイズを少し大きく */
+          margin-top: 0 !important; /* マージンを0に */
+          padding: 0; /* パディングを0に */
         }
         .react-calendar__month-view__weekdays__weekday {
           color: #666 !important;
+          padding: 0; /* パディングを0に */
         }
         .react-calendar__navigation {
           color: black;
           font-weight: bold;
-          font-size: 9px; /* フォントサイズを調整 */
-          margin-bottom: 4px !important; /* マージンを調整 */
+          font-size: 10px; /* フォントサイズを少し大きく */
+          margin-bottom: 0 !important; /* マージンを0に */
+          padding: 0; /* パディングを0に */
         }
         .react-calendar__tile {
-          padding: 6px; /* パディングを調整 */
+          padding: 2px; /* パディングを最小限に */
           border-radius: 4px; /* ボーダー半径を調整 */
-          margin: 2px!important; /* マージンを調整 */
+          margin: 2px !important; /* マージンを0に */
           text-align: center;
           color: black;
           font-weight: bold;
-          font-size: 9px; /* フォントサイズを調整 */
+          font-size: 10px; /* フォントサイズを少し大きく */
           display: flex;
           align-items: center;
           justify-content: center;
@@ -120,9 +125,11 @@ export default function Home() {
         .react-calendar__month-view__days {
           display: grid !important;
           grid-template-columns: repeat(7, 1fr) !important;
+          gap: 0; /* グリッド間の隙間を0に */
         }
         .react-calendar__navigation__label {
-          font-size: 12px !important; /* フォントサイズを調整 */
+          font-size: 12px !important; /* フォントサイズを少し大きく */
+          padding: 0; /* パディングを0に */
         }
       `}</style>
     </div>
