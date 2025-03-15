@@ -98,7 +98,7 @@ const HeatmapCalendar = () => {
         .react-calendar__tile {
           padding: 2px; /* パディングを最小限に */
           border-radius: 4px; /* ボーダー半径を調整 */
-          margin: 2px !important; /* マージンを0に */
+          margin: 1px !important; /* マージンを0に */
           text-align: center;
           color: black;
           font-weight: bold;
