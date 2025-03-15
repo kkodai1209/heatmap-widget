@@ -34,7 +34,7 @@ const HeatmapCalendar = () => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-4" style={{ backgroundColor: "white" }}>
+    <div className="flex flex-col items-center min-h-screen p-0" style={{ backgroundColor: "white" }}>
       <Calendar
         locale="en-US"
         tileClassName={({ date, view }) => {
