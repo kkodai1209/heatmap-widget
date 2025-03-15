@@ -1,22 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { format, isToday, isSameMonth } from "date-fns";
-import { enUS } from "date-fns/locale"; // 英語のロケールをインポート
 
-export default function Home() {
-  const [selectedDate, setSelectedDate] = useState(null);
+const HeatmapCalendar = () => {
+  const [heatmapData, setHeatmapData] = useState({});
 
-  // 仮の勉強データ（日付: 勉強時間）
-  const studyData = {
-  };
+  useEffect(() => {
+    fetch("/api/fetchData")
+      .then(response => response.json())
+      .then(data => {
+        const heatmapData = data.reduce((acc, { date, hours }) => {
+          acc[date] = hours;
+          return acc;
+        }, {});
+        setHeatmapData(heatmapData);
+      });
+  }, []);
 
-  // 勉強時間に応じたクラスを決定
   const getTileClass = (date) => {
     const dateStr = format(date, "yyyy-MM-dd");
-    const hours = studyData[dateStr] || 0;
+    const hours = heatmapData[dateStr] || 0;
 
     if (hours >= 10) return "tile-green-6";
     if (hours >= 8) return "tile-green-5";
@@ -28,17 +34,15 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-0" style={{ backgroundColor: "white" }}>
+    <div className="flex flex-col items-center min-h-screen p-4" style={{ backgroundColor: "white" }}>
       <Calendar
         locale="en-US"
-        onClickDay={(date) => setSelectedDate(format(date, "yyyy-MM-dd"))}
         tileClassName={({ date, view }) => {
           if (view !== "month") return "";
 
           const dateStr = format(date, "yyyy-MM-dd");
           let className = getTileClass(date); // 勉強時間に応じた色
 
-          if (selectedDate === dateStr) className += " tile-selected";
           if (isToday(date)) className += " tile-today";
           if (!isSameMonth(date, new Date())) className += " tile-neighboring-month";
 
@@ -120,4 +124,6 @@ export default function Home() {
       `}</style>
     </div>
   );
-}
+};
+
+export default HeatmapCalendar;
