@@ -117,6 +117,11 @@ const HeatmapCalendar = () => {
           font-size: 12px !important; /* フォントサイズはそのまま */
           padding: 0; /* パディングを0に */
         }
+        .react-calendar__navigation button {
+          min-width: 24px; /* ナビゲーションボタンの幅を小さく */
+          padding: 2px; /* ボタンのパディングを小さく */
+          font-size: 10px; /* フォントサイズを小さく */
+        }
       `}</style>
     </div>
   );
