@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { format, isToday, isSameMonth } from "date-fns";
+import { enUS } from "date-fns/locale"; // 英語のロケールをインポート
 
-const HeatmapCalendar = () => {
-  const [heatmapData, setHeatmapData] = useState({});
+export default function Home() {
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  // Notionからデータを取得してヒートマップ用に変換
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchStudyData(); // 先ほど作成したfetchStudyData関数
-      const studyData = data.map(page => ({
-        date: page.properties["日付"].date.start,
-        hours: page.properties["数値"].number,
-      }));
-      const heatmapData = studyData.reduce((acc, { date, hours }) => {
-        acc[date] = hours;
-        return acc;
-      }, {});
-      setHeatmapData(heatmapData);
-    };
-    fetchData();
-  }, []);
+  // 仮の勉強データ（日付: 勉強時間）
+  const studyData = {
+  };
 
   // 勉強時間に応じたクラスを決定
   const getTileClass = (date) => {
     const dateStr = format(date, "yyyy-MM-dd");
-    const hours = heatmapData[dateStr] || 0;
+    const hours = studyData[dateStr] || 0;
 
     if (hours >= 10) return "tile-green-6";
     if (hours >= 8) return "tile-green-5";
@@ -38,15 +28,17 @@ const HeatmapCalendar = () => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-4" style={{ backgroundColor: "white" }}>
+    <div className="flex flex-col items-center min-h-screen p-0" style={{ backgroundColor: "white" }}>
       <Calendar
         locale="en-US"
+        onClickDay={(date) => setSelectedDate(format(date, "yyyy-MM-dd"))}
         tileClassName={({ date, view }) => {
           if (view !== "month") return "";
 
           const dateStr = format(date, "yyyy-MM-dd");
           let className = getTileClass(date); // 勉強時間に応じた色
 
+          if (selectedDate === dateStr) className += " tile-selected";
           if (isToday(date)) className += " tile-today";
           if (!isSameMonth(date, new Date())) className += " tile-neighboring-month";
 
@@ -99,10 +91,14 @@ const HeatmapCalendar = () => {
           margin-bottom: 0 !important; /* マージンを0に */
           padding: 0; /* パディングを0に */
         }
+        .react-calendar__navigation button {
+          min-width: 24px; /* ナビゲーションボタンの幅を小さく */
+          padding: 2px; /* ボタンのパディングを小さく */
+        }
         .react-calendar__tile {
           padding: 2px; /* パディングを最小限に */
           border-radius: 4px; /* ボーダー半径を調整 */
-          margin: 0 !important; /* マージンを0に */
+          margin: 1px !important; /* マージンを0に */
           text-align: center;
           color: black;
           font-weight: bold;
@@ -124,6 +120,4 @@ const HeatmapCalendar = () => {
       `}</style>
     </div>
   );
-};
-
-export default HeatmapCalendar;
+}
