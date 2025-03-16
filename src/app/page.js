@@ -13,7 +13,11 @@ const HeatmapCalendar = () => {
       .then(response => response.json())
       .then(data => {
         const heatmapData = data.reduce((acc, { date, hours }) => {
-          acc[date] = hours;
+          if (acc[date]) {
+            acc[date] += hours; // 同じ日付のデータが来たら時間を足し合わせる
+          } else {
+            acc[date] = hours; // 初めての日付のデータならそのまま代入
+          }
           return acc;
         }, {});
         setHeatmapData(heatmapData);
