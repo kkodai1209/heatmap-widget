@@ -12,11 +12,11 @@ const HeatmapCalendar = () => {
     fetch("/api/fetchData")
       .then(response => response.json())
       .then(data => {
-        const heatmapData = data.reduce((acc, { date, hours }) => {
+        const heatmapData = data.reduce((acc, { date, minutes }) => {
           if (acc[date]) {
-            acc[date] += hours; // 同じ日付のデータが来たら時間を足し合わせる
+            acc[date] += minutes; // 同じ日付のデータが来たら分を足し合わせる
           } else {
-            acc[date] = hours; // 初めての日付のデータならそのまま代入
+            acc[date] = minutes; // 初めての日付のデータならそのまま代入
           }
           return acc;
         }, {});
@@ -28,11 +28,11 @@ const HeatmapCalendar = () => {
     const dateStr = format(date, "yyyy-MM-dd");
     const hours = heatmapData[dateStr] || 0;
 
-    if (hours >= 10) return "tile-green-6";
-    if (hours >= 8) return "tile-green-5";
-    if (hours >= 6) return "tile-green-4";
-    if (hours >= 4) return "tile-green-3";
-    if (hours >= 2) return "tile-green-2";
+    if (hours >= 600) return "tile-green-6";
+    if (hours >= 480) return "tile-green-5";
+    if (hours >= 360) return "tile-green-4";
+    if (hours >= 240) return "tile-green-3";
+    if (hours >= 120) return "tile-green-2";
     if (hours > 0) return "tile-green-1";
     return "tile-gray";
   };
