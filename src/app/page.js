@@ -57,28 +57,28 @@ const HeatmapCalendar = () => {
       {/* 凡例を横並びに変更 */}
       <div className="mt-4 flex space-x-2">
         <div className="flex items-center space-x-1">
+          <span className="text-xxs font-bold text-black">0h</span>
           <div className="w-2 h-2 tile-green-1"></div>
-          <span className="text-xxs font-bold text-black">0h~</span>
         </div>
         <div className="flex items-center space-x-1">
+          <span className="text-xxs font-bold text-black">2h</span>
           <div className="w-2 h-2 tile-green-2"></div>
-          <span className="text-xxs font-bold text-black">2h~</span>
         </div>
         <div className="flex items-center space-x-1">
+          <span className="text-xxs font-bold text-black">4h</span>
           <div className="w-2 h-2 tile-green-3"></div>
-          <span className="text-xxs font-bold text-black">4h~</span>
         </div>
         <div className="flex items-center space-x-1">
+          <span className="text-xxs font-bold text-black">6h</span>
           <div className="w-2 h-2 tile-green-4"></div>
-          <span className="text-xxs font-bold text-black">6h~</span>
         </div>
         <div className="flex items-center space-x-1">
+          <span className="text-xxs font-bold text-black">8h</span>
           <div className="w-2 h-2 tile-green-5"></div>
-          <span className="text-xxs font-bold text-black">8h~</span>
         </div>
         <div className="flex items-center space-x-1">
+          <span className="text-xxs font-bold text-black">10h</span>
           <div className="w-2 h-2 tile-green-6"></div>
-          <span className="text-xxs font-bold text-black">10h~</span>
         </div>
       </div>
       <style>{`
