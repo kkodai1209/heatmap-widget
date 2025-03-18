@@ -58,27 +58,27 @@ const HeatmapCalendar = () => {
       <div className="mt-4 flex space-x-2">
         <div className="flex items-center space-x-1">
           <div className="w-2 h-2 tile-green-1"></div>
-          <span className="text-xxs font-bold">0h~</span>
+          <span className="text-xxs font-bold text-black">0h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-2 h-2 tile-green-2"></div>
-          <span className="text-xxs font-bold">2h~</span>
+          <span className="text-xxs font-bold text-black">2h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-2 h-2 tile-green-3"></div>
-          <span className="text-xxs font-bold">4h~</span>
+          <span className="text-xxs font-bold text-black">4h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-2 h-2 tile-green-4"></div>
-          <span className="text-xxs font-bold">6h~</span>
+          <span className="text-xxs font-bold text-black">6h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-2 h-2 tile-green-5"></div>
-          <span className="text-xxs font-bold">8h~</span>
+          <span className="text-xxs font-bold text-black">8h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-2 h-2 tile-green-6"></div>
-          <span className="text-xxs font-bold">10h~</span>
+          <span className="text-xxs font-bold text-black">10h~</span>
         </div>
       </div>
       <style>{`
@@ -163,7 +163,7 @@ const HeatmapCalendar = () => {
           margin: 0 !important;
         }
         .text-xxs {
-          font-size: 0.5rem; /* 文字をさらに小さく */
+          font-size: 0.4rem; /* 文字をさらに小さく */
         }
       `}</style>
     </div>
