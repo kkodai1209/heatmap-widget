@@ -34,7 +34,7 @@ const HeatmapCalendar = () => {
     if (hours >= 4) return "tile-green-3";
     if (hours >= 2) return "tile-green-2";
     if (hours > 0) return "tile-green-1";
-    return "tile-gray";
+    return ""; // tile-grayを削除
   };
 
   return (
@@ -55,32 +55,33 @@ const HeatmapCalendar = () => {
         formatDay={(locale, date) => format(date, "d")}
       />
       {/* 凡例を横並びに変更 */}
-      <div className="mt-4 flex space-x-4">
-        <div className="flex items-center space-x-1">
-          <div className="w-3 h-3 tile-gray"></div>
-          <span className="text-xs">0h</span>
-        </div>
+      <div className="mt-4 flex space-x-3">
         <div className="flex items-center space-x-1">
           <div className="w-3 h-3 tile-green-1"></div>
-          <span className="text-xs">0-0.5h</span>
+          <span className="text-xxs">0h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-3 h-3 tile-green-2"></div>
-          <span className="text-xs">0.5h-1h</span>
+          <span className="text-xxs">2h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-3 h-3 tile-green-3"></div>
-          <span className="text-xs">1h-2h</span>
+          <span className="text-xxs">4h~</span>
         </div>
         <div className="flex items-center space-x-1">
           <div className="w-3 h-3 tile-green-4"></div>
-          <span className="text-xs">2h-</span>
+          <span className="text-xxs">6h~</span>
+        </div>
+        <div className="flex items-center space-x-1">
+          <div className="w-3 h-3 tile-green-5"></div>
+          <span className="text-xxs">8h~</span>
+        </div>
+        <div className="flex items-center space-x-1">
+          <div className="w-3 h-3 tile-green-6"></div>
+          <span className="text-xxs">10h~</span>
         </div>
       </div>
       <style>{`
-        .tile-gray { 
-          background-color: #9ca3af !important; /* 灰色（デフォルト） */
-        }
         .tile-green-1 { background-color: #d1fae5 !important; }
         .tile-green-2 { background-color: #a7f3d0 !important; }
         .tile-green-3 { background-color: #6ee7b7 !important; }
@@ -160,6 +161,9 @@ const HeatmapCalendar = () => {
         .react-calendar__navigation__label__labelText {
           padding: 0 !important;
           margin: 0 !important;
+        }
+        .text-xxs {
+          font-size: 0.6rem; /* 文字をさらに小さく */
         }
       `}</style>
     </div>
