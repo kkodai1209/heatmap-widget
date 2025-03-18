@@ -54,6 +54,29 @@ const HeatmapCalendar = () => {
         }}
         formatDay={(locale, date) => format(date, "d")}
       />
+      {/* 凡例を追加 */}
+      <div className="mt-4 flex flex-col items-center">
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 tile-gray"></div>
+          <span>0h</span>
+        </div>
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 tile-green-1"></div>
+          <span>0-0.5h</span>
+        </div>
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 tile-green-2"></div>
+          <span>0.5h-1h</span>
+        </div>
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 tile-green-3"></div>
+          <span>1h-2h</span>
+        </div>
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 tile-green-4"></div>
+          <span>2h-</span>
+        </div>
+      </div>
       <style>{`
         .tile-gray { 
           background-color: #9ca3af !important; /* 灰色（デフォルト） */
