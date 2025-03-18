@@ -93,7 +93,7 @@ const HeatmapCalendar = () => {
         .tile-green-6 { background-color: #059669 !important; }
 
         .tile-today { 
-          border: 1px solid #facc15 !important; /* 今日の日付を黄色枠 */
+          border: 2px solid #facc15 !important; /* 今日の日付を黄色枠 */
         }
         .tile-neighboring-month {
           color: #777 !important; /* 表示月ではない日付の文字色を薄くする */
