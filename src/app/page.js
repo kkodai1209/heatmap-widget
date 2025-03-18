@@ -34,7 +34,7 @@ const HeatmapCalendar = () => {
     if (hours >= 4) return "tile-green-3";
     if (hours >= 2) return "tile-green-2";
     if (hours > 0) return "tile-green-1";
-    return ""; // tile-grayを削除
+    return "tile-gray";
   };
 
   return (
@@ -54,34 +54,10 @@ const HeatmapCalendar = () => {
         }}
         formatDay={(locale, date) => format(date, "d")}
       />
-      {/* 凡例を横並びに変更 */}
-      <div className="mt-4 flex space-x-2">
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">0h</span>
-          <div className="w-2 h-2 tile-green-1"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">2h</span>
-          <div className="w-2 h-2 tile-green-2"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">4h</span>
-          <div className="w-2 h-2 tile-green-3"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">6h</span>
-          <div className="w-2 h-2 tile-green-4"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">8h</span>
-          <div className="w-2 h-2 tile-green-5"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">10h</span>
-          <div className="w-2 h-2 tile-green-6"></div>
-        </div>
-      </div>
       <style>{`
+        .tile-gray { 
+          background-color: #9ca3af !important; /* 灰色（デフォルト） */
+        }
         .tile-green-1 { background-color: #d1fae5 !important; }
         .tile-green-2 { background-color: #a7f3d0 !important; }
         .tile-green-3 { background-color: #6ee7b7 !important; }
@@ -161,9 +137,6 @@ const HeatmapCalendar = () => {
         .react-calendar__navigation__label__labelText {
           padding: 0 !important;
           margin: 0 !important;
-        }
-        .text-xxs {
-          font-size: 0.4rem; /* 文字をさらに小さく */
         }
       `}</style>
     </div>
