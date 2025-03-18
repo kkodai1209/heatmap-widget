@@ -12,11 +12,11 @@ const HeatmapCalendar = () => {
     fetch("/api/fetchData")
       .then(response => response.json())
       .then(data => {
-        const heatmapData = data.reduce((acc, { date, minutes }) => {
+        const heatmapData = data.reduce((acc, { date, hours }) => {
           if (acc[date]) {
-            acc[date] += minutes; // 同じ日付のデータが来たら分を足し合わせる
+            acc[date] += hours; // 同じ日付のデータが来たら時間を足し合わせる
           } else {
-            acc[date] = minutes; // 初めての日付のデータならそのまま代入
+            acc[date] = hours; // 初めての日付のデータならそのまま代入
           }
           return acc;
         }, {});
@@ -28,11 +28,11 @@ const HeatmapCalendar = () => {
     const dateStr = format(date, "yyyy-MM-dd");
     const hours = heatmapData[dateStr] || 0;
 
-    if (hours >= 600) return "tile-green-6";
-    if (hours >= 480) return "tile-green-5";
-    if (hours >= 360) return "tile-green-4";
-    if (hours >= 240) return "tile-green-3";
-    if (hours >= 120) return "tile-green-2";
+    if (hours >= 10) return "tile-green-6";
+    if (hours >= 8) return "tile-green-5";
+    if (hours >= 6) return "tile-green-4";
+    if (hours >= 4) return "tile-green-3";
+    if (hours >= 2) return "tile-green-2";
     if (hours > 0) return "tile-green-1";
     return "tile-gray";
   };
@@ -54,33 +54,6 @@ const HeatmapCalendar = () => {
         }}
         formatDay={(locale, date) => format(date, "d")}
       />
-      {/* 凡例を横並びに変更 */}
-      <div className="mt-4 flex space-x-2">
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">0h</span>
-          <div className="w-2 h-2 tile-green-1"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">2h</span>
-          <div className="w-2 h-2 tile-green-2"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">4h</span>
-          <div className="w-2 h-2 tile-green-3"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">6h</span>
-          <div className="w-2 h-2 tile-green-4"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">8h</span>
-          <div className="w-2 h-2 tile-green-5"></div>
-        </div>
-        <div className="flex items-center space-x-1">
-          <span className="text-xxs font-bold text-black">10h</span>
-          <div className="w-2 h-2 tile-green-6"></div>
-        </div>
-      </div>
       <style>{`
         .tile-gray { 
           background-color: #9ca3af !important; /* 灰色（デフォルト） */
@@ -164,9 +137,6 @@ const HeatmapCalendar = () => {
         .react-calendar__navigation__label__labelText {
           padding: 0 !important;
           margin: 0 !important;
-        }
-        .text-xxs {
-          font-size: 0.5rem; /* 文字をさらに小さく */
         }
       `}</style>
     </div>
