@@ -166,7 +166,7 @@ const HeatmapCalendar = () => {
           margin: 0 !important;
         }
         .text-xxs {
-          font-size: 0.4rem; /* 文字をさらに小さく */
+          font-size: 0.6rem; /* 文字をさらに小さく */
         }
       `}</style>
     </div>
